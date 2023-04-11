@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private Button searchIP;
     private ProgressBar bar;
     private ExecutorService es;
+    private WebView esp32;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         showIp = findViewById(R.id.ip);
         stop = findViewById(R.id.stop_btn);
         searchIP = findViewById(R.id.search_ip);
+        esp32= findViewById(R.id.esp_32);
 
-
+        esp32.loadUrl("http://192.168.43.105:81/stream");
         searchIP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
